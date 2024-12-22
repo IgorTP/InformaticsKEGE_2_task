@@ -12,4 +12,4 @@ for s in product("ВОРБЕЙ", repeat=5):
 
 print(k)
 
-# Ответ: 10476
+# Ответ: 4325

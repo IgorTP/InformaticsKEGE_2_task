@@ -3,7 +3,7 @@ from itertools import product
 n = 0  # номер
 k = 0  # количество
 
-for s in product("БВЕЙОР", repeat=5):
+for s in product("ВОРБЕЙ", repeat=5):
     n += 1
     s = "".join(s)
 
@@ -12,4 +12,4 @@ for s in product("БВЕЙОР", repeat=5):
 
 print(k)
 
-# Ответ: 4325
+# Ответ: 10476

@@ -1,19 +1,17 @@
-from itertools import product
+from itertools import *
 
-n = 0  # номер
-k = 0  # количество
-
-for s in product("01234567", repeat=7):
-    n += 1
+k = set()
+for s in product("0123456789ABCDEF", repeat=3):
     s = "".join(s)
+    t = ""
 
-    # Алгоритм для проверки, что 2 чётные не стоят рядом и 2 нечётные не стоят рядом, то есть:
-    # ("00", "02", ... not in s) and ("11", "13", ... not in s)
-    if s[0] != "0" and len(s) == len(set(s)) and \
-            all(["".join(j) not in s for j in product("0246", repeat=2)]) and \
-            all(["".join(j) not in s for j in product("1357", repeat=2)]):
-        k += 1
+    for x in s:
+        if x in "02468ACE":
+            t += "H"
+        else:
+            t += "N"
 
-print(k)
+    if s[0] != "0" and len(s) == len(set(s)) and "HH" not in t and "NN" not in t:
+        k.add(s)
 
-# Ответ: 1008
+print(len(k))
